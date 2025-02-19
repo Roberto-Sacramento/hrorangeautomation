@@ -10,7 +10,7 @@ namespace hrorangeautomation.Configuration
     public class ChromeDriverConfiguration
     {
         private IWebDriver? _driver;
-        private static readonly string DriverPath = Path.Combine(Directory.GetCurrentDirectory(), "/home/karbax/Documents/GIT/hrorangeautomation/Drivers/chromedriver");
+        private static readonly string DriverPath = Path.Combine(Directory.GetCurrentDirectory(), "C:\\REPO\\hrorangeautomation\\Drivers\\chromedriver.exe");
         public static readonly string BaseUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
 
