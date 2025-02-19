@@ -13,6 +13,7 @@ namespace hrorangeautomation.src.Pages
         private IWebElement _userPassword => Driver.FindElement(By.XPath("//following-sibling::input[contains(@placeholder, 'Password')]"));
         private IWebElement _loginButton => Driver.FindElement(By.XPath("//button[@type='submit']"));
         private IWebElement dashboardPage => Driver.FindElement(By.XPath("//span[text()='Dashboard']"));
+
         private readonly IWebDriver Driver;
         public LoginPage(IWebDriver driver)
         {
@@ -36,10 +37,7 @@ namespace hrorangeautomation.src.Pages
             return dashboardPage.Text;
         }
 
-        public void ClickOnDashboardOption()
-        {
-            dashboardPage.Click();
-        }
+       
         public void FillInLoginPage(string userName, string userPassword)
         {
             _userName.Clear();
@@ -47,6 +45,11 @@ namespace hrorangeautomation.src.Pages
             _userPassword.Clear();
             _userPassword.SendKeys(userPassword);
             _loginButton.Submit();
+        }
+
+        public void ClickOnDashboardOption()
+        {
+            dashboardPage.Click();
         }
     }
 }

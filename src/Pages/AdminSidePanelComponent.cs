@@ -1,12 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenQA.Selenium;
+using TechTalk.SpecFlow;
+using OpenQA.Selenium.Chrome;
 
 namespace hrorangeautomation.src.Pages
 {
-    class AdminSidePanelComponent
+    [Binding]
+    class AdminSidePanelComponent : DashboardHomePageSidePanelCompronent
     {
+        private IWebElement addButton => Driver.FindElement(By.XPath(""));
+
+        private readonly IWebDriver Driver;
+
+        public AdminSidePanelComponent(IWebDriver driver) : base(driver)
+        {
+            Driver = driver;
+        }
+
+        public void ClickOnAddButton()
+        {
+            addButton.Click();
+        }
+
+
     }
 }
