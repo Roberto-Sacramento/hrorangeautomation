@@ -5,15 +5,15 @@ using hrorangeautomation.src.Pages;
 namespace hrorangeautomation.src.StepDefinitions
 {
     [Binding]
-    public class BasePageSteps
+    public class LoginPageSteps
     {
-        public readonly BasePage _basePage;
+        public readonly LoginPage _loginPage;
         
 
         /*
         *ScenarioContext is a SpecFlow class that provides access to the context of the current scenario, including shared data.
         */
-        public BasePageSteps(ScenarioContext scenarioContext)
+        public LoginPageSteps(ScenarioContext scenarioContext)
         {
             /*
              TryGetValue is a method that tries to get the value associated with the specified key from the ScenarioContext.
@@ -25,7 +25,7 @@ namespace hrorangeautomation.src.StepDefinitions
              */
             if (scenarioContext.TryGetValue("WebDriver", out var driverObj) && driverObj is IWebDriver driver)
             {
-                _basePage = new BasePage(driver);
+                _loginPage = new LoginPage(driver);
             }
             else
             {
@@ -34,10 +34,25 @@ namespace hrorangeautomation.src.StepDefinitions
         }
 
 
-        [Given(@"I navigate to Home page (.*), (.*)")]
+        [Given(@"I navigate to Login page")]
+        public void INavigateToLoginPage()
+        {
+            _loginPage.LoadUsernameElement();
+            _loginPage.LoadUserPasswordElement();
+        }
+
+        [When(@"I logged with following credentials (.*), (.*)")]
         public void GivenINavigateToTheMainPage(string userName, string userPassword)
         {
-            _basePage.FillInLoginPage(userName, userPassword);
+            _loginPage.LoadUsernameElement();
+            _loginPage.LoadUserPasswordElement();
+            _loginPage.FillInLoginPage(userName, userPassword);
+        }
+
+        [Then(@"I should see the Home page")]
+        public void ThenIShouldSeeTheHomePage()
+        {
+            _loginPage.LoadDashboardPage();
         }
     }
 }

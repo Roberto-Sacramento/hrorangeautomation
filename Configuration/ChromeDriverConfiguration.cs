@@ -24,7 +24,7 @@ namespace hrorangeautomation.Configuration
                 _driver.Navigate().GoToUrl(BaseUrl);
                 _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
                 _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
-                _driver.Title.Equals("DEMOQA");
+                _driver.Title.Equals("OrangeHRM");
             }
             return _driver;
         }
