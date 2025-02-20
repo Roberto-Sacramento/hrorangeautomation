@@ -20,22 +20,22 @@ namespace hrorangeautomation.Src.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "4.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("BasePage")]
-    public partial class BasePageFeature
+    [NUnit.Framework.DescriptionAttribute("AdminSidePanel")]
+    public partial class AdminSidePanelFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "LoginPage.feature"
+#line 1 "AdminSidePanel.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual async System.Threading.Tasks.Task FeatureSetupAsync()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunnerForAssembly(null, NUnit.Framework.TestContext.CurrentContext.WorkerId);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "src/Features", "BasePage", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "src/Features", "AdminSidePanel", "A short summary of the feature", ProgrammingLanguage.CSharp, featureTags);
             await testRunner.OnFeatureStartAsync(featureInfo);
         }
         
@@ -74,13 +74,15 @@ namespace hrorangeautomation.Src.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Access the Home page")]
-        public async System.Threading.Tasks.Task AccessTheHomePage()
+        [NUnit.Framework.DescriptionAttribute("Create an Admin user")]
+        [NUnit.Framework.CategoryAttribute("tag1")]
+        public async System.Threading.Tasks.Task CreateAnAdminUser()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Access the Home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 3
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create an Admin user", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -90,14 +92,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 4
- await testRunner.GivenAsync("I navigate to Login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 7
+    await testRunner.GivenAsync("I navigate to Login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 5
- await testRunner.WhenAsync("I logged on the application Admin, admin123", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 6
- await testRunner.ThenAsync("I should see the Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 8
+ await testRunner.WhenAsync("I create an Admin user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

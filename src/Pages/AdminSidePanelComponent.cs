@@ -5,9 +5,9 @@ using OpenQA.Selenium.Chrome;
 namespace hrorangeautomation.src.Pages
 {
     [Binding]
-    class AdminSidePanelComponent : DashboardHomePageSidePanelCompronent
+     public class AdminSidePanelComponent : DashboardHomePageSidePanelCompronent
     {
-        private IWebElement addButton => Driver.FindElement(By.XPath(""));
+        private IWebElement addButton => Driver.FindElement(By.XPath("//div[contains(button, 'Add')]//button"));
 
         private readonly IWebDriver Driver;
 

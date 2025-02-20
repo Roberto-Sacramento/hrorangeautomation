@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using TechTalk.SpecFlow;
 
 namespace hrorangeautomation.src.Pages
 {
-    
+    [Binding]
     public class LoginPage
     {
         private IWebElement _userName => Driver.FindElement(By.XPath("//following-sibling::input[contains(@placeholder, 'Username')]"));

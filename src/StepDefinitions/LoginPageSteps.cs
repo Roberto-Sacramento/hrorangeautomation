@@ -9,7 +9,6 @@ namespace hrorangeautomation.src.StepDefinitions
     {
         public readonly LoginPage _loginPage;
         
-
         /*
         *ScenarioContext is a SpecFlow class that provides access to the context of the current scenario, including shared data.
         */
@@ -41,7 +40,7 @@ namespace hrorangeautomation.src.StepDefinitions
             _loginPage.LoadUserPasswordElement();
         }
 
-        [When(@"I logged with following credentials (.*), (.*)")]
+        [When(@"I logged on the application (.*), (.*)")]
         public void GivenINavigateToTheMainPage(string userName, string userPassword)
         {
             _loginPage.LoadUsernameElement();

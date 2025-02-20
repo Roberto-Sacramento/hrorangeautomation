@@ -2,11 +2,11 @@
 
 namespace hrorangeautomation.src.Pages
 {
-    class DashboardHomePageSidePanelCompronent
+    public class DashboardHomePageSidePanelCompronent
     {
         #region selectors🔧
-        private IWebElement _adminSidePanelOption => Driver.FindElement(By.XPath(""));
-        private IWebElement _PIMSidePanelOption => Driver.FindElement(By.XPath(""));
+        private IWebElement _adminSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'Admin')]//span"));
+        private IWebElement _PIMSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'PIM')]//span"));
         private IWebElement _leaveSidePanelOption => Driver.FindElement(By.XPath(""));
         private IWebElement _timeSidePanelOption => Driver.FindElement(By.XPath(""));
         private IWebElement _recruitmentSidePanelOption => Driver.FindElement(By.XPath(""));
