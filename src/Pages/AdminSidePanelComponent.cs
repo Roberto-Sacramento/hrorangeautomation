@@ -7,7 +7,7 @@ namespace hrorangeautomation.src.Pages
     [Binding]
      public class AdminSidePanelComponent : DashboardHomePageSidePanelCompronent
     {
-        private IWebElement addButton => Driver.FindElement(By.XPath("//div[contains(button, 'Add')]//button"));
+        private IWebElement _addButton => Driver.FindElement(By.XPath("//div[contains(button, 'Add')]//button"));
 
         private readonly IWebDriver Driver;
 
@@ -18,7 +18,7 @@ namespace hrorangeautomation.src.Pages
 
         public void ClickOnAddButton()
         {
-            addButton.Click();
+            _addButton.Click();
         }
 
 
