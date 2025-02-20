@@ -7,12 +7,12 @@ namespace hrorangeautomation.src.Pages
         #region selectors🔧
         private IWebElement _adminSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'Admin')]//span"));
         private IWebElement _PIMSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'PIM')]//span"));
-        private IWebElement _leaveSidePanelOption => Driver.FindElement(By.XPath(""));
-        private IWebElement _timeSidePanelOption => Driver.FindElement(By.XPath(""));
-        private IWebElement _recruitmentSidePanelOption => Driver.FindElement(By.XPath(""));
-        private IWebElement _myInfoSidePanelOption => Driver.FindElement(By.XPath(""));
-        private IWebElement _performanceSidePanelOption => Driver.FindElement(By.XPath(""));
-        private IWebElement _directorySidePanelOption => Driver.FindElement(By.XPath(""));
+        private IWebElement _leaveSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'Leave')]//span"));
+        private IWebElement _timeSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'Time')]//span"));
+        private IWebElement _recruitmentSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'Recruitment')]//span"));
+        private IWebElement _myInfoSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'My Info')]//span"));
+        private IWebElement _performanceSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'Performance')]//span"));
+        private IWebElement _directorySidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'Directory')]//span"));
         #endregion
 
         private readonly IWebDriver Driver;
