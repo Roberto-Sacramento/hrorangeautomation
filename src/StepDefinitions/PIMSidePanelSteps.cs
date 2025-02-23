@@ -1,10 +1,11 @@
-using System;
-using SpecFlow;
 using TechTalk.SpecFlow;
 using hrorangeautomation.src.Pages;
 using hrorangeautomation.Utils;
 using OpenQA.Selenium;
 using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+
 
 namespace hrorangeautomation
 {
@@ -34,16 +35,16 @@ namespace hrorangeautomation
             pIMSidePanelComponent.ClickOnAddEmployeeOpption();
             pIMSidePanelComponent.LoadAddEmployeeContainer();
             pIMSidePanelComponent.FillInEmployeeForm(firsName, middleName, lastName);
-            
-            
-
+            pIMSidePanelComponent.ClickOnSaveButton();
         }
 
-        [Then("The system should display the following message: (.*)")]
-        public void ThenTheSystemShouldDisplayTheFollowingMessage(string message)
+        [Then("The system should display a sucefully message")]
+        public void ThenTheSystemShouldDisplayTheFollowingMessage()
         {
-
-            Assert.Pass(toasterMessagens.SucessfulMessage(message));
+            
+            toasterMessagens.SucessfulMessage();
+            
+            
         }
     }
 }
