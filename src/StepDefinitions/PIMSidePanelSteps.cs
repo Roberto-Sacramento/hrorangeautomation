@@ -4,6 +4,7 @@ using hrorangeautomation.Utils;
 using OpenQA.Selenium;
 using NUnit.Framework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Legacy;
 
 
 
@@ -42,8 +43,8 @@ namespace hrorangeautomation
         public void ThenTheSystemShouldDisplayTheFollowingMessage()
         {
             
-            toasterMessagens.SucessfulMessage();
-            
+            string actual = toasterMessagens.SucessfulMessage();
+            ClassicAssert.AreEqual(actual,"Success\nSuccessfully Saved\n×");         
             
         }
     }
