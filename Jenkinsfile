@@ -32,9 +32,9 @@ pipeline {
                 sh './deploy.sh'
             }
         }
-    }
+     }
 
-    post {
+     post {
         always {
             // Clean up after the build
             cleanWs()
@@ -47,7 +47,8 @@ pipeline {
             // Notify failure
             echo 'Build or deployment failed.'
         }
-    }
+      }
 
-  }
+    }
 }
+
