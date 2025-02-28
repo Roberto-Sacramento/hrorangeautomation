@@ -16,6 +16,8 @@ pipeline {
                 // Build the application
                 script {
                     try {
+                        // List workspace contents again before running the script
+                        sh 'ls -la'
                         sh './build.sh'
                     } catch (Exception e) {
                         echo "Build failed: ${e.message}"
