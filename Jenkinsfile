@@ -8,8 +8,6 @@ pipeline {
                 git 'https://github.com/Roberto-Sacramento/hrorangeautomation.git'
                 // List workspace contents
                 sh 'ls -la'
-                // Set execute permissions
-                sh 'chmod +x build.sh test.sh deploy.sh'
             }
         }
         
