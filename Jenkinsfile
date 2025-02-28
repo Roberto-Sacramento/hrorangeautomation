@@ -6,9 +6,6 @@ pipeline {
             steps {
                 // Checkout code from version control
                 git 'https://github.com/Roberto-Sacramento/hrorangeautomation.git'
-                withCredentials([usernamePassword(credentialsId: 'your-credentials-id', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'echo $USERNAME'
-                    sh 'echo $PASSWORD'
             }
         }
         
@@ -32,7 +29,7 @@ pipeline {
                 sh './deploy.sh'
             }
         }
-     }
+     
 
      post {
         always {
