@@ -12,24 +12,46 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the application
-                sh './build.sh'
+                script {
+                    try {
+                        sh './build.sh'
+                    } catch (Exception e) {
+                        echo "Build failed: ${e.message}"
+                        currentBuild.result = 'FAILURE'
+                        throw e
+                    }
+                }
             }
         }
         
         stage('Test') {
             steps {
                 // Run automated tests
-                sh './test.sh'
+                script {
+                    try {
+                        sh './test.sh'
+                    } catch (Exception e) {
+                        echo "Tests failed: ${e.message}"
+                        currentBuild.result = 'FAILURE'
+                        throw e
+                    }
+                }
             }
         }
         
         stage('Deploy') {
             steps {
                 // Deploy the application
-                sh './deploy.sh'
+                script {
+                    try {
+                        sh './deploy.sh'
+                    } catch (Exception e) {
+                        echo "Deployment failed: ${e.message}"
+                        currentBuild.result = 'FAILURE'
+                        throw e
+                    }
+                }
             }
         }
-
     }
 }
-
