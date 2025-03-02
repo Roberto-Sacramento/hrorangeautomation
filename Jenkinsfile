@@ -10,8 +10,7 @@ pipeline {
 
         stage('Building') {
             steps {
-                sudo 'ls-la'
-                sh './build.sh' // Or your build command, such as 'mvn clean install'
+                
             }
         }
 
