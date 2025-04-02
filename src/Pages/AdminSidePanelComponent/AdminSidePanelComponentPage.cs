@@ -1,17 +1,18 @@
 ﻿using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium.Chrome;
+using hrorangeautomation.src.Pages.DashboardHomePage;
 
-namespace hrorangeautomation.src.Pages
+namespace hrorangeautomation.src.Pages.AdminSidePanelComponent
 {
     [Binding]
-     public class AdminSidePanelComponent : DashboardHomePageSidePanelCompronent
+     public class AdminSidePanelComponentPage : DashboardHomeSidePanelCompronentPage
     {
         private IWebElement _addButton => Driver.FindElement(By.XPath("//div[contains(button, 'Add')]//button"));
 
         private readonly IWebDriver Driver;
 
-        public AdminSidePanelComponent(IWebDriver driver) : base(driver)
+        public AdminSidePanelComponentPage(IWebDriver driver) : base(driver)
         {
             Driver = driver;
         }

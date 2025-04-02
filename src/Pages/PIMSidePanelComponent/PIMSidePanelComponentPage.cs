@@ -2,10 +2,10 @@
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 
-namespace hrorangeautomation.src.Pages
+namespace hrorangeautomation.src.Pages.DashboardHomePage
 {
     
-    public class PIMSidePanelComponent : DashboardHomePageSidePanelCompronent
+    public class PIMSidePanelComponentPage : DashboardHomeSidePanelCompronentPage
     {
         private IWebElement _addEmployee => Driver.FindElement(By.XPath("//li[contains(a, 'Add Employee')]//a"));
         private IWebElement _addEmployeeContainerLoad => Driver.FindElement(By.XPath("//div[contains(h6, 'Add Employee')]"));
@@ -17,7 +17,7 @@ namespace hrorangeautomation.src.Pages
 
         private readonly IWebDriver Driver;
 
-        public PIMSidePanelComponent(IWebDriver driver) : base(driver)
+        public PIMSidePanelComponentPage(IWebDriver driver) : base(driver)
         {
             Driver = driver;
         }
