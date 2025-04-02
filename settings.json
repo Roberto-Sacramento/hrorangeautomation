@@ -1,10 +1,10 @@
 {
-"workbench.colorTheme": "Default Light+",
-"editor.quickSuggestions": true,
-"window.zoomLevel": 0,
-"gherkin-autocomplete.featuresPath": "src/features",
-"cucumberautocomplete.steps": [
-    "src/stepDefinitions/*.js",
-],
-"cucumberautocomplete.syncfeatures": "src/features/*feature",
-} 
+    "workbench.colorTheme": "Default Light+",
+    "editor.quickSuggestions": true,
+    "window.zoomLevel": 0,
+    "gherkin-autocomplete.featuresPath": "src/features",
+    "cucumberautocomplete.steps": [
+        "src/stepDefinitions/*.cs"
+    ],
+    "cucumberautocomplete.syncfeatures": "src/features/*feature"
+}
