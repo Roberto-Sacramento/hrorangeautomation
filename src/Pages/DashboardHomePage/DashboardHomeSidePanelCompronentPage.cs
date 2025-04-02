@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
 
-namespace hrorangeautomation.src.Pages
+namespace hrorangeautomation.src.Pages.DashboardHomePage
 {
-    public class DashboardHomePageSidePanelCompronent
+    public class DashboardHomeSidePanelCompronentPage
     {
         #region selectors🔧
         private IWebElement _adminSidePanelOption => Driver.FindElement(By.XPath("//a[contains(span, 'Admin')]//span"));
@@ -16,7 +16,7 @@ namespace hrorangeautomation.src.Pages
         #endregion
 
         private readonly IWebDriver Driver;
-        public DashboardHomePageSidePanelCompronent(IWebDriver driver)
+        public DashboardHomeSidePanelCompronentPage(IWebDriver driver)
         {
             Driver = driver;
         }
