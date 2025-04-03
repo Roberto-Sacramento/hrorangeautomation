@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
+using hrorangeautomation.src.Pages.DashboardHomePage;
 
-namespace hrorangeautomation.src.Pages.DashboardHomePage
+namespace hrorangeautomation.src.Pages.PIMSidePanelComponent
 {
     
     public class PIMSidePanelComponentPage : DashboardHomeSidePanelCompronentPage
