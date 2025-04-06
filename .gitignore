@@ -2,3 +2,4 @@ obj/
 bin/
 .vs/
 Drivers/chromedriver
+dotnet-install.sh
