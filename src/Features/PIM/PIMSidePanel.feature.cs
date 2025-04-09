@@ -94,7 +94,7 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.GivenAsync("I navigate to Login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- await testRunner.WhenAsync("I logged on the application Admin, admin123", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ await testRunner.WhenAsync("I logged on the application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
  await testRunner.AndAsync("I create an ESS user with the informations: John, Smith, Silvas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

@@ -1,35 +1,54 @@
-using hrorangeautomation.Configuration;
-using OpenQA.Selenium.Chrome;
+// filepath: /home/robert/Documents/GIT/hrorangeautomation/src/Hooks/Hooks.cs
+using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
-namespace hrorangeautomation.src.Hooks
+[Binding]
+public class Hooks
 {
-    
-    [Binding]
-    public class Hooks
+    private readonly ScenarioContext _scenarioContext;
+    private IWebDriver _webDriver;
+    private readonly IConfiguration configuration;
+
+    public Hooks(ScenarioContext scenarioContext)
     {
-        private readonly ScenarioContext _scenarioContext;
-        private readonly ChromeDriverConfiguration _chromeDriverConfig;
+        _scenarioContext = scenarioContext;
 
-        public Hooks(ScenarioContext scenarioContext)
+        // Load configuration
+        configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .Build();
+    }
+
+    [BeforeScenario]
+    public void BeforeScenario()
+    {
+        // Get ChromeDriver path and BaseUrl from configuration
+        string chromeDriverPath = configuration["SeleniumSettings:ChromeDriverPath"];
+        string baseUrl = configuration["SeleniumSettings:BaseUrl"];
+
+        // Initialize WebDriver
+        _webDriver = new ChromeDriver(chromeDriverPath);
+        _scenarioContext["WebDriver"] = _webDriver;
+
+        // Navigate to BaseUrl
+        if (!string.IsNullOrWhiteSpace(baseUrl))
         {
-            _scenarioContext = scenarioContext;
-            _chromeDriverConfig = new ChromeDriverConfiguration();
+            _webDriver.Navigate().GoToUrl(baseUrl);
+            Console.WriteLine($"Navigated to BaseUrl: {baseUrl}");
         }
-
-        [BeforeScenario]
-        public void BeforeScenario()
+        else
         {
-            IWebDriver driver = _chromeDriverConfig.GetDriver();
-            _scenarioContext["WebDriver"] = driver;
-        }
-
-        [AfterScenario]
-        public void AfterScenario()
-        {
-            _chromeDriverConfig.QuitDriver();
+            throw new InvalidOperationException("BaseUrl is not configured in appsettings.json.");
         }
     }
-    
+
+    [AfterScenario]
+    public void AfterScenario()
+    {
+        // Cleanup WebDriver
+        _webDriver?.Quit();
+    }
 }

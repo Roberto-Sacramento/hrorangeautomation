@@ -7,51 +7,43 @@ namespace hrorangeautomation.src.StepDefinitions.LoginSteps
     [Binding]
     public class LoginPageSteps
     {
-        public readonly LoginPage loginPage;
+        private readonly ScenarioContext _scenarioContext;
+        private readonly LoginPage _loginPage;
 
-        /*
-        *ScenarioContext is a SpecFlow class that provides access to the context of the current scenario, including shared data.
-        */
         public LoginPageSteps(ScenarioContext scenarioContext)
         {
-            /*
-             TryGetValue is a method that tries to get the value associated with the specified key from the ScenarioContext.
-             If the key is found, the value is stored in the driverObj variable and the method returns true.
-             If the key is not found, the method returns false.
-             2.	ScenarioContext and WebDriver:
-             • The code attempts to retrieve an object associated with the key "WebDriver" from the scenarioContext.
-             •	TryGetValue is used to safely attempt to get the value without throwing an exception if the key does not exist. It returns true if the key is found and assigns the value to driverObj.
-             */
-            if (scenarioContext.TryGetValue("WebDriver", out var driverObj) && driverObj is IWebDriver driver)
-            {
-                loginPage = new LoginPage(driver);
-            }
-            else
-            {
-                throw new ArgumentNullException(nameof(driver), "WebDriver is not available in the scenario context.");
-            }
-        }
+            _scenarioContext = scenarioContext;
 
+            if (!_scenarioContext.ContainsKey("WebDriver"))
+            {
+                throw new InvalidOperationException("WebDriver is not set in the ScenarioContext. Ensure it is initialized in a BeforeScenario hook.");
+            }
+
+            var webDriver = _scenarioContext["WebDriver"] as IWebDriver
+                ?? throw new ArgumentNullException("WebDriver is not available in the scenario context.");
+
+            _loginPage = new LoginPage(webDriver);
+        }
 
         [Given(@"I navigate to Login page")]
         public void INavigateToLoginPage()
         {
-            loginPage.LoadUsernameElement();
-            loginPage.LoadUserPasswordElement();
+            _loginPage.LoadUsernameElement();
+            _loginPage.LoadUserPasswordElement();
         }
 
-        [When(@"I logged on the application (.*), (.*)")]
+        [When(@"I logged on the application")]
         public void GivenINavigateToTheMainPage(string userName, string userPassword)
         {
-            loginPage.LoadUsernameElement();
-            loginPage.LoadUserPasswordElement();
-            loginPage.FillInLoginPage(userName, userPassword);
+            _loginPage.LoadUsernameElement();
+            _loginPage.LoadUserPasswordElement();
+            _loginPage.FillInLoginPage(userName, userPassword);
         }
 
         [Then(@"I should see the Home page")]
         public void ThenIShouldSeeTheHomePage()
         {
-            loginPage.LoadDashboardPage();
+            _loginPage.LoadDashboardPage();
         }
     }
 }

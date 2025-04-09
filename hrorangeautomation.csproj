@@ -6,16 +6,21 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0"/>
-    <PackageReference Include="FluentAssertions" Version="8.0.1"/>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.0-preview-25107-01"/>
-    <PackageReference Include="Selenium.WebDriver" Version="4.28.0"/>
-    <PackageReference Include="NUnit" Version="4.3.2"/>
-    <PackageReference Include="NUnit3TestAdapter" Version="4.3.2"/>
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="133.0.6943.5300"/>
-    <PackageReference Include="SpecFlow.NUnit" Version="4.0.31-beta"/>
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="4.0.31-beta"/>
-    <PackageReference Include="MSTest.TestFramework" Version="3.8.2"/>
-    <PackageReference Include="MSTest.TestAdapter" Version="3.8.2"/> 
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="FluentAssertions" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.0-preview-25107-01" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.31.0" />
+    <PackageReference Include="NUnit" Version="4.3.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.3.2" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="133.0.6943.5300" />
+    <PackageReference Include="SpecFlow.NUnit" Version="4.0.31-beta" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="4.0.31-beta" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.8.2" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.8.2" /> 
+    <None Update="appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

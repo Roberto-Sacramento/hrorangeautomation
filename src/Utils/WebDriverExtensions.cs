@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using hrorangeautomation.src.Utils;
 
 namespace hrorangeautomation.src.Utils
 {
